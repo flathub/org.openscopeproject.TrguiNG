@@ -19,11 +19,9 @@
   </supports>
 
   <description>
-    <p>
-      TrguiNG is an alternative UI for controlling transmission torrent daemon running on the same machine or any other host that has exposed transmission rpc endpoint.
-    </p>
-    <p>
-      Features:<br/>
+    <p>TrguiNG is an alternative UI for controlling transmission torrent daemon running on the same machine or any other host that has exposed transmission rpc endpoint.</p>
+    <p>Features:</p>
+    <ul>
       <li>Multi tabbed interface for concurrent server connections</li>
       <li>Torrent creation with fast multi threaded hashing</li>
       <li>Powerful torrent filtering options</li>
@@ -31,36 +29,59 @@
       <li>Configurable path mappings to directly access torrent files if their location is mounted locally</li>
       <li>Latest transmission features support: labels, bandwidth groups, sequential download</li>
       <li>Dark/light/custom theme support</li>
-    </p>
-    <p>
-      Requires transmission server version 2.40 or later.
-    </p>
+    </ul>
+    <p>Requires transmission server version 2.40 or later.</p>
   </description>
 
   <launchable type="desktop-id">org.openscopeproject.TrguiNG.desktop</launchable>
   <screenshots>
     <screenshot type="default">
-      <image>https://openscopeproject.org/img/trguing/screenshots/1.png</image>
+      <image type="source">https://openscopeproject.org/img/trguing/screenshots/1.png</image>
+      <caption>Main window</caption>
     </screenshot>
     <screenshot>
-      <image>https://openscopeproject.org/img/trguing/screenshots/2.png</image>
+      <image type="source">https://openscopeproject.org/img/trguing/screenshots/2.png</image>
+      <caption>Adding a torrent</caption>
     </screenshot>
     <screenshot>
-      <image>https://openscopeproject.org/img/trguing/screenshots/3.png</image>
+      <image type="source">https://openscopeproject.org/img/trguing/screenshots/3.png</image>
+      <caption>Dark theme, peers tab</caption>
     </screenshot>
     <screenshot>
-      <image>https://openscopeproject.org/img/trguing/screenshots/4.png</image>
+      <image type="source">https://openscopeproject.org/img/trguing/screenshots/4.png</image>
+      <caption>Creating new torrent</caption>
     </screenshot>
     <screenshot>
-      <image>https://openscopeproject.org/img/trguing/screenshots/5.png</image>
+      <image type="source">https://openscopeproject.org/img/trguing/screenshots/5.png</image>
+      <caption>Torrent properties</caption>
     </screenshot>
     <screenshot>
-      <image>https://openscopeproject.org/img/trguing/screenshots/6.png</image>
+      <image type="source">https://openscopeproject.org/img/trguing/screenshots/6.png</image>
+      <caption>Server settings</caption>
     </screenshot>
   </screenshots>
 
   <releases>
-      <release version="1.0.0" date="2023-11-25"/>
+    <release version="1.1.0" date="2023-12-26">
+      <description>
+        <p>Main changes and fixes:</p>
+        <ul>
+          <li>Add ratio to server statistics tab</li>
+          <li>Add start/pause items in torrent table context menu</li>
+          <li>Make list of status filters configurable</li>
+          <li>Add option to hide tray icon</li>
+          <li>Add total size indicator when adding single file or multiple torrents</li>
+          <li>Fix piece canvas scaling on HiDPI displays</li>
+          <li>Fixes in files table row selection UX</li>
+          <li>Fix "Open" and "Open folder" menu items not working on directories in file table</li>
+        </ul>
+      </description>
+    </release>
+    <release version="1.0.0" date="2023-11-25">
+      <description>
+        <p>First full featured stable release</p>
+      </description>
+    </release>
   </releases>
 
   <content_rating type="oars-1.0" />

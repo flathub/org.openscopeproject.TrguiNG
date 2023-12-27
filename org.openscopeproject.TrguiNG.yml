@@ -19,6 +19,7 @@ finish-args:
   - --filesystem=home
   - --talk-name=org.freedesktop.Notifications
   - --device=dri
+  - --env=WEBKIT_DISABLE_DMABUF_RENDERER=1
 
 build-options:
   append-path: /usr/lib/sdk/node18/bin:/usr/lib/sdk/rust-stable/bin
@@ -64,8 +65,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/openscopeproject/TrguiNG.git
-        tag: v1.0.0
-        commit: 152724a5f2b82cbeacea80aa2a92cd93f5557a98
+        tag: v1.1.0
+        commit: 649cefc40fc978d9723d9610531c7c9f0933cc90
         x-checker-data:
           type: git
           tag-pattern: ^v((?:\d+.)*\d+)$
@@ -80,8 +81,8 @@ modules:
       - type: file
         path: org.openscopeproject.TrguiNG.appdata.xml
       - type: file
-        url: https://github.com/openscopeproject/TrguiNG/releases/download/v1.0.0/dbip.mmdb
-        sha256: 00199d1a2c79882d77f502cc1253f174cf0160321dbd176ac0c5340a4f720a07
+        url: https://github.com/openscopeproject/TrguiNG/releases/download/v1.1.0/dbip.mmdb
+        sha256: 4e950b00174b3a51b42e46d2c696191c3821c7e7679ee805bdd73e3bafbd36e9
     buildsystem: simple
     build-options:
       env:
