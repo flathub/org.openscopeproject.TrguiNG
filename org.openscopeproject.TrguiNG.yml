@@ -65,8 +65,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/openscopeproject/TrguiNG.git
-        tag: v1.1.0
-        commit: 649cefc40fc978d9723d9610531c7c9f0933cc90
+        tag: v1.2.0
+        commit: 5786630533a3807a770f3b88cf0eb49f31c5dce1
         x-checker-data:
           type: git
           tag-pattern: ^v((?:\d+.)*\d+)$
@@ -81,8 +81,8 @@ modules:
       - type: file
         path: org.openscopeproject.TrguiNG.appdata.xml
       - type: file
-        url: https://github.com/openscopeproject/TrguiNG/releases/download/v1.1.0/dbip.mmdb
-        sha256: 4e950b00174b3a51b42e46d2c696191c3821c7e7679ee805bdd73e3bafbd36e9
+        url: https://github.com/openscopeproject/TrguiNG/releases/download/v1.2.0/dbip.mmdb
+        sha256: d00f5b2c18bba6eb6d779b667e53168f9af0be01b693bb6de9ebca4f408c0d1a
     buildsystem: simple
     build-options:
       env:
