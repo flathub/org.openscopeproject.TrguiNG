@@ -62,6 +62,21 @@
   </screenshots>
 
   <releases>
+    <release version="1.2.0" date="2024-02-20">
+      <description>
+        <p>Main changes and fixes:</p>
+        <ul>
+          <li>Make tabs in details panel configurable</li>
+          <li>Improve compatibility with some malformed torrent files</li>
+          <li>Add option to show compact folder tree in filters</li>
+          <li>Show current server speeds in window title bar</li>
+          <li>Add option to always show global speeds in statusbar/title bar</li>
+          <li>Add option to reset "delete data" flag or remember user choice</li>
+          <li>Fix "open folder" not working for incomplete torrents</li>
+          <li>Fix UI crash on geoip lookup miss</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.1.0" date="2023-12-26">
       <description>
         <p>Main changes and fixes:</p>
