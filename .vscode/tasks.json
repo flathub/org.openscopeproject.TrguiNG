@@ -24,6 +24,11 @@
                 "run",
                 "org.openscopeproject.TrguiNG"
             ]
+        },
+        {
+            "label": "generate sources",
+            "type": "shell",
+            "command": "${workspaceFolder}/generate_sources.sh"
         }
     ]
 }
