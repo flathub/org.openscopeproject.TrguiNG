@@ -62,6 +62,22 @@
   </screenshots>
 
   <releases>
+    <release version="1.3.0" date="2024-04-15">
+      <description>
+        <p>Main changes and fixes:</p>
+        <ul>
+          <li>Improve compatibility with some malformed torrent files</li>
+          <li>Add ability to remove a folder from last download directories list</li>
+          <li>Add option to show torrent files as a list instead of a tree</li>
+          <li>Add option to update transmission blocklist</li>
+          <li>Add preconfigured labels</li>
+          <li>Add options to disable animations for progressbars or show them colorized based on status</li>
+          <li>Add ability to navigate filter list with keyboard arrow keys</li>
+          <li>Fix crash on wayland with some compositors</li>
+          <li>Minor UI fixes</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.2.0" date="2024-02-20">
       <description>
         <p>Main changes and fixes:</p>
