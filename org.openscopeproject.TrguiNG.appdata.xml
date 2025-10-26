@@ -62,6 +62,21 @@
   </screenshots>
 
   <releases>
+    <release version="1.5.0" date="2025-10-25">
+      <description>
+        <p>Main changes and fixes:</p>
+        <ul>
+          <li>Update to latest GNOME platform and current webkit engine</li>
+          <li>Add system network proxy support</li>
+          <li>Add option to filter directories non-recursively</li>
+          <li>Add file size and piece count calculation when creating torrents</li>
+          <li>Improve compatibility with non-compliant/malformed torrent files</li>
+          <li>Fix window size growing on each launch in some cases</li>
+          <li>Fix tray icon not displayed properly in some cases</li>
+          <li>Minor UI fixes</li>
+        </ul>
+      </description>
+    </release>
     <release version="1.4.0" date="2024-10-08">
       <description>
         <p>Main changes and fixes:</p>
