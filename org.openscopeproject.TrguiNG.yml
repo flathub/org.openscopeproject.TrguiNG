@@ -1,13 +1,13 @@
 id: org.openscopeproject.TrguiNG
 runtime: org.gnome.Platform
-runtime-version: '45'
+runtime-version: '49'
 sdk: org.gnome.Sdk
-command: trgui-ng
-rename-icon: trgui-ng
+command: org.openscopeproject.TrguiNG
+rename-icon: TrguiNG
 copy-icon: true
 
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.node18
+  - org.freedesktop.Sdk.Extension.node22
   - org.freedesktop.Sdk.Extension.rust-stable
 
 finish-args:
@@ -17,7 +17,14 @@ finish-args:
   - --share=ipc
   - --share=network
   - --filesystem=home
+  - --filesystem=xdg-run/tray-icon:create
   - --talk-name=org.freedesktop.Notifications
+  - --talk-name=com.canonical.Unity
+  - --talk-name=org.freedesktop.StatusNotifierItem.Menu
+  - --talk-name=com.canonical.indicator.application
+  - --talk-name=com.canonical.AppMenu.Registrar
+  - --talk-name=org.ayatana.indicator.application
+  - --talk-name=org.kde.StatusNotifierWatcher
   - --device=dri
   - --env=WEBKIT_DISABLE_DMABUF_RENDERER=1
 
@@ -25,48 +32,14 @@ build-options:
   append-path: /usr/lib/sdk/node18/bin:/usr/lib/sdk/rust-stable/bin
 
 modules:
-  - shared-modules/libappindicator/libappindicator-gtk3-12.10.json
-
-  - name: webkit2gtk-4.0
-    sources:
-      - type: archive
-        url: https://webkitgtk.org/releases/webkitgtk-2.42.1.tar.xz
-        sha256: 6f41fac9989d3ee51c08c48de1d439cdeddecbc757e34b6180987d99b16d2499
-        x-checker-data:
-          type: html
-          url: https://webkitgtk.org/releases/
-          version-pattern: LATEST-STABLE-(\d[\.\d]+\d)
-          url-template: https://webkitgtk.org/releases/webkitgtk-$version.tar.xz
-    buildsystem: cmake-ninja
-    config-opts:
-      - -DPORT=GTK
-      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
-      - -DENABLE_DOCUMENTATION=OFF
-      - -DENABLE_MINIBROWSER=OFF
-      - -DENABLE_WEBDRIVER=OFF
-      - -DENABLE_GAMEPAD=OFF
-      - -DUSE_SOUP2=ON
-      - -DENABLE_BUBBLEWRAP_SANDBOX=OFF
-    modules:
-      - shared-modules/libsoup/libsoup-2.4.json
-
-      - name: unifdef
-        no-autogen: true
-        make-install-args:
-          - prefix=${FLATPAK_DEST}
-        sources:
-          - type: archive
-            url: https://dotat.at/prog/unifdef/unifdef-2.12.tar.xz
-            sha256: 43ce0f02ecdcdc723b2475575563ddb192e988c886d368260bc0a63aee3ac400
-        cleanup:
-          - '*'
+  - shared-modules/libayatana-appindicator/libayatana-appindicator-gtk3.json
 
   - name: TrguiNG
     sources:
       - type: git
         url: https://github.com/openscopeproject/TrguiNG.git
-        tag: v1.4.0
-        commit: 7cff79edfd8578495c227bccd0bdd7853c283588
+        tag: v1.5.0
+        commit: e3c7765832d24207a12c9a33fbc81322ea3ec77d
         x-checker-data:
           type: git
           tag-pattern: ^v((?:\d+.)*\d+)$
@@ -81,25 +54,32 @@ modules:
       - type: file
         path: org.openscopeproject.TrguiNG.appdata.xml
       - type: file
-        url: https://github.com/openscopeproject/TrguiNG/releases/download/v1.4.0/dbip.mmdb
-        sha256: 0f9a459f66aa99138412213ec9d5a2635ab6e623759a8326f49ea508db0eed62
+        url: https://github.com/openscopeproject/TrguiNG/releases/download/v1.5.0/dbip.mmdb
+        sha256: 15291b7961766f54fc1ff8afac4189a67850920cd8b555b3dc6ddf9d02fc3ada
     buildsystem: simple
     build-options:
+      append-path: /app/bin:/usr/lib/sdk/node22/bin:/usr/lib/sdk/node22/lib/node_modules/npm/node_modules/node-gyp/bin
       env:
         CARGO_HOME: /run/build/TrguiNG/cargo
         XDG_CACHE_HOME: /run/build/TrguiNG/flatpak-node/cache
         npm_config_cache: /run/build/TrguiNG/flatpak-node/npm-cache
         npm_config_offline: 'true'
+        npm_config_nodedir: /usr/lib/sdk/node22
         NODE_OPTIONS: --max_old_space_size=4096
     build-commands:
+      - |
+        desktop-file-edit \
+          --set-key="Exec" --set-value="org.openscopeproject.TrguiNG %u" \
+          "org.openscopeproject.TrguiNG.desktop"
+
       - cp dbip.mmdb src-tauri/
-      - npm ci --offline --legacy-peer-deps
+      - /usr/lib/sdk/node22/bin/npm ci --offline --legacy-peer-deps
       - cargo --offline fetch --manifest-path src-tauri/Cargo.toml
-      - npm run build -- -b deb
+      - /usr/lib/sdk/node22/bin/npm run build -- -b deb
       - install -Dm644 -t /app/share/metainfo/ org.openscopeproject.TrguiNG.appdata.xml
-      - install -Dm755 -t /app/bin/ src-tauri/target/release/trgui-ng
-      - install -Dm644 -t /app/lib/trgui-ng/ src-tauri/target/release/dbip.mmdb
-      - install -Dm644 src/svg/app.svg /app/share/icons/hicolor/scalable/apps/trgui-ng.svg
+      - install -Dm755 src-tauri/target/release/TrguiNG /app/bin/org.openscopeproject.TrguiNG
+      - install -Dm644 -t /app/lib/TrguiNG/ src-tauri/target/release/dbip.mmdb
+      - install -Dm644 src/svg/app.svg /app/share/icons/hicolor/scalable/apps/TrguiNG.svg
       - install -Dm644 -t /app/share/applications/ org.openscopeproject.TrguiNG.desktop
       - mkdir -p /app/share/icons/hicolor
       - cp -r src-tauri/target/release/bundle/deb/*/data/usr/share/icons/hicolor/* /app/share/icons/hicolor/
