@@ -38,8 +38,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/openscopeproject/TrguiNG.git
-        tag: v1.5.0
-        commit: e3c7765832d24207a12c9a33fbc81322ea3ec77d
+        tag: v1.5.1
+        commit: 9b257d74f20456ee972fe1d0ee48f0a315d40e97
         x-checker-data:
           type: git
           tag-pattern: ^v((?:\d+.)*\d+)$
@@ -54,8 +54,8 @@ modules:
       - type: file
         path: org.openscopeproject.TrguiNG.appdata.xml
       - type: file
-        url: https://github.com/openscopeproject/TrguiNG/releases/download/v1.5.0/dbip.mmdb
-        sha256: 15291b7961766f54fc1ff8afac4189a67850920cd8b555b3dc6ddf9d02fc3ada
+        url: https://github.com/openscopeproject/TrguiNG/releases/download/v1.5.1/dbip.mmdb
+        sha256: e4f183d26a79e7750abb24cce0dcc595a0cb009f2de4082c27b84cae6bbd7944
     buildsystem: simple
     build-options:
       append-path: /app/bin:/usr/lib/sdk/node22/bin:/usr/lib/sdk/node22/lib/node_modules/npm/node_modules/node-gyp/bin
